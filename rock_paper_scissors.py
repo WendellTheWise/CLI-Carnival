@@ -6,10 +6,13 @@ def rock_paper_scissors(ticket):
     os.system('cls' if os.name == 'nt' else 'clear')
     global points
     global cpoints
+    cpoints = 0
+    points = 0
     while points < 3 and cpoints < 3:
+        npoints = 0
         print(f"Your Points: {points}")
         print(f"Computer Points: {cpoints}")
-        computer = random.randint(1, 4)
+        computer = random.randint(1, 3)
         if computer == 1:
             guess = "Rock"
         elif computer == 2:
@@ -19,7 +22,7 @@ def rock_paper_scissors(ticket):
         proper = False
         while proper == False:
             proper = True
-            pguess = input("Your Guess: ")
+            pguess = input("Your Guess: ").capitalize()
             if pguess != "Rock" and pguess != "Scissors" and pguess != "Paper" and pguess != "Exit":
                 os.system('cls' if os.name == 'nt' else 'clear')
                 print("Invalid Throw, Try Again")
@@ -60,10 +63,16 @@ def rock_paper_scissors(ticket):
     os.system('cls' if os.name == 'nt' else 'clear')
     if cpoints > points:
         print ("You Have Lost")
+        print()
+        print (f"You Have Won {points} Tickets")
+        print()
+        print("Thank You For Playing, Press Enter To Return To The Carnival")
+        input()
+        os.system('cls' if os.name == 'nt' else 'clear')
+        return points
     else:
         print ("You Win")
-    input()
-    os.system('cls' if os.name == 'nt' else 'clear')
-
-    
-rock_paper_scissors(0)
+        print(f"You Have Won {points * 3} Tickets")
+        input()
+        os.system('cls' if os.name == 'nt' else 'clear')
+        return points * 3
