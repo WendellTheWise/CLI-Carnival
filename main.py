@@ -2,8 +2,9 @@ from rock_paper_scissors import *
 from Number_Guesser import *
 from chance import *
 from hangman import *
+from mastermind import *
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6"]
 exit = False
 while exit == False: 
     if Tickets <= 0:
@@ -22,7 +23,8 @@ while exit == False:
     2: Number Guess : 5 Tickets
     3: Chance : Wagerable
     4: Hangman : 3
-    5: Exit
+    5: Mastermind : 4
+    6: Exit
     """)
     game = input("What Game Would You Like To Play? ").lower()
     if game not in game_list:
@@ -50,6 +52,11 @@ while exit == False:
             Tickets -= 3
             Tickets += hangman(Tickets)
             os.system('clear')
-        if game == "exit" or game == "5":
+        if game == "mastermind" or game == "5":
+            os.system('clear')
+            Tickets -= 4
+            Tickets += mastermind(Tickets)
+            os.system('clear')
+        if game == "exit" or game == "6":
             exit = True
             break
