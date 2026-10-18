@@ -1,4 +1,4 @@
-from hangman_word_cache import *
+from word_cache import *
 import random
 import os
 def hangman(tickets):
