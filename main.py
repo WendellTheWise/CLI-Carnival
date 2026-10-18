@@ -4,6 +4,7 @@ from chance import *
 from hangman import *
 from mastermind import *
 from anagram import *
+
 Tickets = 5
 game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagram", "7"]
 exit = False
@@ -21,6 +22,13 @@ while exit == False:
     print("")
     print(f"Your Current Ticket Count Is {Tickets}")
     print("")
+    with open("leaderboard.txt") as f:
+        leader = [line.strip() for line in f if line.strip()]
+    leader.sort(key=lambda line: int(line.split()[-2]), reverse=True)
+    print("The Current Leaderboard:\n")
+    for line in leader:
+        print(line)
+    print()
     print("""The Game Selection And Their Costs Are 
     1: Rock Paper Scissors : 2 Tickets
     2: Number Guess : 5 Tickets
@@ -68,4 +76,20 @@ while exit == False:
             os.system('clear')
         if game == "exit" or game == "7":
             exit = True
+            os.system('clear')
+            correct = True
+            while correct == True:
+                correct = False
+                question = input("Would You Like To Save Your Tickets On The Leaderboard. Y/N: ").lower()
+                if question.lower() != "y" and question.lower() != "n" and question.lower() != "yes" and question.lower() != "n":
+                    os.system('clear')
+                    input(""" Please Make Sure Your Answer Is Either Yes, No, Y, or N. 
+                
+                    Press Enter To Continue""")
+                    correct = True
+            if question == "y" or "yes":
+                os.system('clear')
+                name = input("Please Enter A Name For You: ")
+                with open("leaderboard.txt", "a") as f:
+                    f.write(f"{name} Has Earned {Tickets} Tickets\n")
             break
