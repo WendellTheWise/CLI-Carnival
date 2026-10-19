@@ -1,4 +1,4 @@
-from word_cache import *
+from Carnival.word_cache import *
 import random
 import os
 def hangman(tickets):

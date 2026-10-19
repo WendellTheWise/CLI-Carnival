@@ -1,9 +1,14 @@
+from pathlib import Path
+
+LEADERBOARD = Path.home() / ".cli_carnival" / "leaderboard.txt"
+LEADERBOARD.parent.mkdir(parents=True, exist_ok=True)
+LEADERBOARD.touch(exist_ok=True)
 from rock_paper_scissors import *
-from Number_Guesser import *
-from chance import *
-from hangman import *
-from mastermind import *
-from anagram import *
+from Carnival.Number_Guesser import *
+from Carnival.chance import *
+from Carnival.hangman import *
+from Carnival.mastermind import *
+from Carnival.anagram import *
 
 Tickets = 5
 game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagram", "7"]
@@ -22,7 +27,7 @@ while exit == False:
     print("")
     print(f"Your Current Ticket Count Is {Tickets}")
     print("")
-    with open("leaderboard.txt") as f:
+    with open(LEADERBOARD) as f:
         leader = [line.strip() for line in f if line.strip()]
     leader.sort(key=lambda line: int(line.split()[-2]), reverse=True)
     print("The Current Leaderboard:\n")
@@ -90,6 +95,6 @@ while exit == False:
             if question == "y" or "yes":
                 os.system('clear')
                 name = input("Please Enter A Name For You: ")
-                with open("leaderboard.txt", "a") as f:
+                with open(LEADERBOARD, "a") as f:
                     f.write(f"{name} Has Earned {Tickets} Tickets\n")
             break
