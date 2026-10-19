@@ -18,7 +18,12 @@ def chance(tickets):
     rand = random.randint((-wager),(2 * wager))
     problem = random.randint(0,2)
     while timer < 75:
-        print(rand)
+        print(f"""
+            ---
+        /{rand +1 }\\
+        |{rand}|   
+        \{rand - 1}/
+            ---""")
         print(timeing)
         print(timer)
         rand += 1
