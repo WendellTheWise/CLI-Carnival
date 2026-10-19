@@ -1,4 +1,0 @@
-test Has Earned 2 Tickets
-Test Has Earned 7 Tickets
-odin Has Earned 5 Tickets
-Odin Has Earned 9 Tickets
