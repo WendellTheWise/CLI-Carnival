@@ -1,4 +1,4 @@
-from Carnival.word_cache import *
+from word_cache import *
 import random
 import os
 def hangman(tickets):
@@ -12,7 +12,6 @@ def hangman(tickets):
         while wrong !=6 and win != True:
             os.system('clear')
             print(art[wrong])
-            print(word)
             print(f"Guessed Letters {wronglet}")
             for letter in word:
                 if letter.isupper():

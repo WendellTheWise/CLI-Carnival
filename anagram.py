@@ -1,6 +1,6 @@
 import random
 import os
-from Carnival.word_cache import *
+from word_cache import *
 
 def anagram(Tickets):
     os.system('clear')

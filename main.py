@@ -93,13 +93,13 @@ while exit == False:
             while correct == True:
                 correct = False
                 question = input("Would You Like To Save Your Tickets On The Leaderboard. Y/N: ").lower()
-                if question.lower() != "y" and question.lower() != "n" and question.lower() != "yes" and question.lower() != "n":
+                if question.lower() != "y" and question.lower() != "n" and question.lower() != "yes" and question.lower() != "no":
                     os.system('clear')
                     input(""" Please Make Sure Your Answer Is Either Yes, No, Y, or N. 
                 
                     Press Enter To Continue""")
                     correct = True
-            if question == "y" or "yes":
+            if question == "y" or question == "yes":
                 os.system('clear')
                 name = input("Please Enter A Name For You: ")
                 with open(LEADERBOARD, "a") as f:

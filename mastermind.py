@@ -13,7 +13,6 @@ def mastermind(Tickets):
     attempt = 0
     while win != True and attempt < 10:
         while win != True and attempt < 10:
-            print(code)
             guess = list(input("Please Guess A 5 Digit Combo: "))
             if len(guess) != 5:
                 os.system('clear')

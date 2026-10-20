@@ -22,7 +22,7 @@ def chance(tickets):
             ---
         /{rand +1 }\\
         |{rand}|   
-        \{rand - 1}/
+        \\{rand - 1}/
             ---""")
         print(timeing)
         print(timer)
