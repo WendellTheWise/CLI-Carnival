@@ -12,7 +12,7 @@ from anagram import *
 from cardwar import *
 import os
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset"]
 exit = False
 while exit == False: 
     if Tickets <= 0:
@@ -44,6 +44,7 @@ while exit == False:
     6: Anagrams : 2
     7: War : 8
     8: Exit
+    Or Enter Reset To Reset The Leaderboard
     """)
     game = input("What Game Would You Like To Play? ").lower()
     if game not in game_list:
@@ -86,6 +87,9 @@ while exit == False:
             Tickets -= 8
             Tickets += war(Tickets)
             os.system('clear')
+        if game == "reset":
+            with open(LEADERBOARD, "w") as f:
+                f.write("")
         if game == "exit" or game == "8":
             exit = True
             os.system('clear')
