@@ -3,15 +3,15 @@ from pathlib import Path
 LEADERBOARD = Path.home() / ".cli_carnival" / "leaderboard.txt"
 LEADERBOARD.parent.mkdir(parents=True, exist_ok=True)
 LEADERBOARD.touch(exist_ok=True)
-from rock_paper_scissors import *
+from Carnival.rock_paper_scissors import *
 from Carnival.Number_Guesser import *
 from Carnival.chance import *
 from Carnival.hangman import *
 from Carnival.mastermind import *
 from Carnival.anagram import *
-
+from Carnival.cardwar import *
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagram", "7"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagram", "7", "War", "8"]
 exit = False
 while exit == False: 
     if Tickets <= 0:
@@ -41,7 +41,8 @@ while exit == False:
     4: Hangman : 3
     5: Mastermind : 4
     6: Anagrams : 2
-    7: Exit
+    7: War : 8
+    8: Exit
     """)
     game = input("What Game Would You Like To Play? ").lower()
     if game not in game_list:
@@ -79,7 +80,12 @@ while exit == False:
             Tickets -= 2
             Tickets += anagram(Tickets)
             os.system('clear')
-        if game == "exit" or game == "7":
+        if game == "war" or game == "7":
+            os.system('clear')
+            Tickets -= 7
+            Tickets += war(Tickets)
+            os.system('clear')
+        if game == "exit" or game == "8":
             exit = True
             os.system('clear')
             correct = True
