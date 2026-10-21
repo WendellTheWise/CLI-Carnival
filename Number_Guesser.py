@@ -36,6 +36,7 @@ def guesser(ticket):
             continue
     if 10 - len(previous) <= 0:
         print("However, You Have Taken Too Many Tries, You Receive 0 Tickets")
+        return 0
     else:
         print(f"You Have Earned {10 - len(previous)} Tickets!")
     input()

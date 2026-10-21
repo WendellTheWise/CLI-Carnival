@@ -27,7 +27,7 @@ while exit == False:
     os.system('clear')
     print("Welcome to Mr Pythons Carnival Of Fun")
     print("")
-    print(f"Your Current Ticket Count Is {Tickets}")
+    print(f"Your Current Tickets Count Is {Tickets}")
     print("")
     with open(LEADERBOARD) as f:
         leader = [line.strip() for line in f if line.strip()]
@@ -56,47 +56,86 @@ while exit == False:
         os.system('clear')
     else:
         if game == "rock paper scissors" or game == "1":
-            Tickets -= 2
-            new_tickets = rock_paper_scissors(Tickets)
-            Tickets += new_tickets
             os.system('clear')
+            if Tickets < 2:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+            else:
+                Tickets -= 2
+                new_Tickets = rock_paper_scissors(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
         if game == "number guess" or game == "2":
-            Tickets -= 5
-            new_tickets = guesser(Tickets)
-            Tickets += new_tickets
             os.system('clear')
+            if Tickets < 5:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+            else:
+                Tickets -= 5
+                new_Tickets = guesser(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
+
         if game == "chance" or game == "3":
             os.system('clear')
             Tickets += chance(Tickets)
             os.system('clear')
+
         if game == "hangman" or game == "4":
             os.system('clear')
-            Tickets -= 3
-            Tickets += hangman(Tickets)
+            if Tickets < 3:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+            else:
+                os.system('clear')
+                Tickets -= 3
+                new_Tickets = hangman(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
             os.system('clear')
+
         if game == "mastermind" or game == "5":
             os.system('clear')
-            Tickets -= 4
-            Tickets += mastermind(Tickets)
-            os.system('clear')
+            if Tickets < 4:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+            else:
+                Tickets -= 4
+                new_Tickets = mastermind(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
+
         if game == "anagrams" or game == "6":
             os.system('clear')
-            Tickets -= 2
-            Tickets += anagram(Tickets)
-            os.system('clear')
+            if Tickets < 2:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+            else:
+                Tickets -= 2
+                new_Tickets = anagram(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
+
         if game == "war" or game == "7":
             os.system('clear')
-            Tickets -= 8
-            Tickets += war(Tickets)
-            os.system('clear')
+            if Tickets < 8:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+            else:
+                Tickets -= 8
+                new_Tickets = war(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
+
         if game == "simon" or game == "8":
             os.system('clear')
-            Tickets -= 10
-            Tickets += simon(Tickets)
-            os.system('clear')
+            if Tickets < 10:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+            else:
+                Tickets -= 10
+                new_Tickets = simon(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
+
         if game == "reset":
+            os.system('clear')
             with open(LEADERBOARD, "w") as f:
                 f.write("")
+
         if game == "exit" or game == "9":
             exit = True
             os.system('clear')

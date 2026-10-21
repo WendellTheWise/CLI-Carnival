@@ -38,6 +38,7 @@ def chance(tickets):
         print("Better Luck Next Time")
         print()
         input("Press Enter To Continue")
+        return rand
     else:
         print(f"!!!!!!!!!!{rand}!!!!!!!!!")
         print("WINNER WINNER WINNER")

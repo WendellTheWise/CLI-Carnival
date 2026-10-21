@@ -46,8 +46,11 @@ def mastermind(Tickets):
     if attempt >= 10 and win != True:
         os.system('clear')
         print("Too Many Attempts, You Have Failed")
+        print(f"The Correct Combination Was {code}")
         print()
         input("Press Enter To Continue")
+        return 0
+
     if win == True:
         os.system('clear')
         print("You Gessed The Code, Congratulations, You Have Earned 8 Tickets")
