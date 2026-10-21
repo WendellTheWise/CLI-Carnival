@@ -61,14 +61,35 @@ cards = [
 
 def fish(tickets):
     global cards
+    playmatches = []
+    compmatches = []
     deck = cards[:]
     random.shuffle(deck)
     comp_hand = deck[:7]
     play_hand = deck[7:14]
     deck = deck[14:]
+    for card in play_hand:
+        for checksum in play_hand:
+            if card[0] == checksum[0] and card[1] != checksum[1]:
+                play_hand.remove(card)
+                play_hand.remove(checksum)
+                playmatches.append((card, checksum))
+    for card in comp_hand:
+        for checksum in comp_hand:
+            if card[0] == checksum[0] and card[1] != checksum[1]:
+                comp_hand.remove(card)
+                comp_hand.remove(checksum)
+                compmatches.append((card, checksum))
+    
+    askfor = input(f""" 
+    Current Player Matches 
+    {playmatches}
 
-    askfor = input(f""" Current Matches {matches}
-    Your Hand Is
+    Current Computer Matches
+    {compmatches}
+
+    Your Hand Is: 
     {list(play_hand)}
-    Please Enter A Card In Your Hand""")
+
+    Please Enter A Card Number In Your Hand (1 For The First On The Left, 2 For The Second On The Left, Etc) In Your Hand: """)
 fish(0)
