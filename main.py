@@ -12,10 +12,11 @@ from anagram import *
 from cardwar import *
 from simonsays import *
 import os
-Tickets = 5
+Tickets = 1
 game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9"]
 exit = False
 while exit == False: 
+    os.system('clear')
     if Tickets <= 0:
         print(Tickets)
         print("Sorry, You Are Too Poor, Why Dont You Come Back When You Are A Little, Hmm, Richer")
@@ -59,6 +60,8 @@ while exit == False:
             os.system('clear')
             if Tickets < 2:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
             else:
                 Tickets -= 2
                 new_Tickets = rock_paper_scissors(Tickets)
@@ -68,6 +71,8 @@ while exit == False:
             os.system('clear')
             if Tickets < 5:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
             else:
                 Tickets -= 5
                 new_Tickets = guesser(Tickets)
@@ -83,6 +88,8 @@ while exit == False:
             os.system('clear')
             if Tickets < 3:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
             else:
                 os.system('clear')
                 Tickets -= 3
@@ -95,6 +102,8 @@ while exit == False:
             os.system('clear')
             if Tickets < 4:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
             else:
                 Tickets -= 4
                 new_Tickets = mastermind(Tickets)
@@ -105,6 +114,8 @@ while exit == False:
             os.system('clear')
             if Tickets < 2:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
             else:
                 Tickets -= 2
                 new_Tickets = anagram(Tickets)
@@ -115,6 +126,8 @@ while exit == False:
             os.system('clear')
             if Tickets < 8:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
             else:
                 Tickets -= 8
                 new_Tickets = war(Tickets)
@@ -125,6 +138,8 @@ while exit == False:
             os.system('clear')
             if Tickets < 10:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor to Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
             else:
                 Tickets -= 10
                 new_Tickets = simon(Tickets)
