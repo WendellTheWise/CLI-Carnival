@@ -10,9 +10,10 @@ from hangman import *
 from mastermind import *
 from anagram import *
 from cardwar import *
+from simonsays import *
 import os
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9"]
 exit = False
 while exit == False: 
     if Tickets <= 0:
@@ -43,7 +44,8 @@ while exit == False:
     5: Mastermind : 4
     6: Anagrams : 2
     7: War : 8
-    8: Exit
+    8: Simon : 10
+    9: Exit
     Or Enter Reset To Reset The Leaderboard
     """)
     game = input("What Game Would You Like To Play? ").lower()
@@ -87,10 +89,15 @@ while exit == False:
             Tickets -= 8
             Tickets += war(Tickets)
             os.system('clear')
+        if game == "simon" or game == "8":
+            os.system('clear')
+            Tickets -= 10
+            Tickets += simon(Tickets)
+            os.system('clear')
         if game == "reset":
             with open(LEADERBOARD, "w") as f:
                 f.write("")
-        if game == "exit" or game == "8":
+        if game == "exit" or game == "9":
             exit = True
             os.system('clear')
             correct = True
