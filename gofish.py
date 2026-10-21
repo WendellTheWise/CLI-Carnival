@@ -82,6 +82,7 @@ def fish(tickets):
                     comp_hand.remove(card)
                     comp_hand.remove(checksum)
                     compmatches.append((card, checksum))
+                    break
         try:
             askfor = int(input(f""" 
             Current Player Matches {len(playmatches)}
@@ -129,5 +130,22 @@ def fish(tickets):
                 input("Press Enter To Continue")
             else:
                 print("The Deck Is Empty, No New Cards May Be Drawn")
-        
+        os.system('clear')
+        print("Its The Computers Turn")
+        random.shuffle(comp_hand)
+        take = comp_hand[0]
+        print(f"The Computer Asks For {take}")
+        old_comp = comp_hand[:]
+        for cm in play_hand:
+            if take == cm[0]:
+                print(f"The Computer Has Taken Your {cm}")
+        if old_comp == comp_hand:
+            if len(deck) > 0:
+                print("Go Fish")
+                comp_hand.append(deck[0])
+                deck.remove(deck[0])
+            else:
+                print("The Deck Is Empty, No New Cards May Be Drawn")
+            print()
+            input("Press Enter To Continue")
 fish(0)
