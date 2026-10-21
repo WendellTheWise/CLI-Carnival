@@ -10,6 +10,7 @@ def chance(tickets):
         good = True
         wager = int(input("How Many Tickets Are You Wagering? "))
         if wager > tickets:
+            os.system('clear')
             print(" You Cannot Wager More Tickets Than You Have")
             good = False
             print()

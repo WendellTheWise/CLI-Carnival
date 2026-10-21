@@ -80,10 +80,17 @@ while exit == False:
                 os.system('clear')
 
         if game == "chance" or game == "3":
-            os.system('clear')
-            Tickets += chance(Tickets)
-            os.system('clear')
+            try:
+                os.system('clear')
+                Tickets += chance(Tickets)
+                os.system('clear')
 
+            except:
+                os.system('clear')
+                print("Please Enter A Valid, Non-Negative Integer")
+                print()
+                input("Press Enter To Continue")
+                
         if game == "hangman" or game == "4":
             os.system('clear')
             if Tickets < 3:
