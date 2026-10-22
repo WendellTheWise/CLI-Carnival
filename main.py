@@ -6,6 +6,7 @@ LEADERBOARD.touch(exist_ok=True)
 from rock_paper_scissors import *
 from Number_Guesser import *
 from chance import *
+from gofish import *
 from hangman import *
 from mastermind import *
 from anagram import *
@@ -13,7 +14,7 @@ from cardwar import *
 from simonsays import *
 import os
 Tickets = 1
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10"]
 exit = False
 while exit == False: 
     os.system('clear')
@@ -46,7 +47,8 @@ while exit == False:
     6: Anagrams : 2
     7: War : 8
     8: Simon : 10
-    9: Exit
+    9: Go Fish : 4
+    10: Exit
     Or Enter Reset To Reset The Leaderboard
     """)
     game = input("What Game Would You Like To Play? ").lower()
@@ -78,7 +80,7 @@ while exit == False:
                 new_Tickets = guesser(Tickets)
                 Tickets += new_Tickets
                 os.system('clear')
-
+        
         if game == "chance" or game == "3":
             try:
                 os.system('clear')
@@ -152,13 +154,25 @@ while exit == False:
                 new_Tickets = simon(Tickets)
                 Tickets += new_Tickets
                 os.system('clear')
+                
+        if game == "go fish" or game == "9":
+            os.system('clear')
+            if Tickets <  4:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor To Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
+            else:
+                Tickets -= 4
+                new_Tickets = fish(Tickets)
+                Tickets == new_Tickets
+                os.system('clear')
 
         if game == "reset":
             os.system('clear')
             with open(LEADERBOARD, "w") as f:
                 f.write("")
 
-        if game == "exit" or game == "9":
+        if game == "exit" or game == "10":
             exit = True
             os.system('clear')
             correct = True

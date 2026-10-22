@@ -19,14 +19,21 @@ def chance(tickets):
     rand = random.randint((-wager),(2 * wager))
     problem = random.randint(0,2)
     while timer < 75:
+        if rand - 1 < (-wager):
+            smallrand = 2 * wager
+        else:
+            smallrand = rand
+        
+        if rand + 1 > 2 * wager:
+            bigrand = -wager
+        else:
+            bigrand = rand
         print(f"""
             ---
-        /{rand +1 }\\
+        /{bigrand + 1 }\\
         |{rand}|   
-        \\{rand - 1}/
+        \\{smallrand - 1}/
             ---""")
-        print(timeing)
-        print(timer)
         rand += 1
         time.sleep(0.00 + timeing)
         os.system('clear')

@@ -194,4 +194,12 @@ def fish(tickets):
             deck.remove(deck[0])
             print()
             input("Press Enter To Continue")
-fish(0)
+    print("All Matches Have Been Made")
+    print(f""" You Have Made {len(playmatches)} Matches
+    The Computer Has Made {len(compmatches)} Matches""")
+    if len(playmatches) > len(compmatches):
+        print(f"You Win, You Have Earned {len(playmatches)} Tickets")
+        return len(playmatches)
+    if len(playmatches) < len(compmatches):
+        print("You Lose. You Have Earned 0 Tickets")
+        return 0
