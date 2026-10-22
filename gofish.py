@@ -58,37 +58,72 @@ cards = [
     ("Queen", "Diamonds"),
     ("King", "Diamonds")
 ]
+ranks = [
+    ("Ace",  "Hearts"),
+    ("Two", "Hearts"),
+    ("Three", "Hearts"),
+    ("Four", "Hearts"),
+    ("Five", "Hearts"),
+    ("Six", "Hearts"),
+    ("Seven", "Hearts"),
+    ("Eight", "Hearts"),
+    ("Nine", "Hearts"),
+    ("Ten", "Hearts"),
+    ("Jack", "Hearts"),
+    ("Queen", "Hearts"),
+    ("King", "Hearts"),]
+
+suits = [
+    "Diamonds",
+    "Clubs",
+    "Spades",
+    "Hearts"
+]
 
 def fish(tickets):
     global cards
     playmatches = []
     compmatches = []
+    counter = 0
+    adder = []
     deck = cards[:]
     random.shuffle(deck)
     comp_hand = deck[:7]
     play_hand = deck[7:14]
     deck = deck[14:]
-    while len(play_hand) > 0 or len(comp_hand) > 0:
-        for card in play_hand:
-            for checksum in play_hand:
-                if card[0] == checksum[0] and card[1] != checksum[1]:
+    while len(playmatches) + len(compmatches) < 13:
+        for typing in ranks:
+            counter = 0
+            for card in play_hand:
+                if card[0] == typing[0]:
+                    counter  += 1
+            for card in play_hand[:]:
+                if counter == 4 and card[0] == typing[0]:
                     play_hand.remove(card)
-                    play_hand.remove(checksum)
-                    playmatches.append((card, checksum))
-                    break
-        for card in comp_hand:
-            for checksum in comp_hand:
-                if card[0] == checksum[0] and card[1] != checksum[1]:
+                    adder.append(card)
+        if adder:
+            playmatches.append(adder)
+        adder = []
+
+        for typing in ranks:
+            counter = 0
+            for card in comp_hand:
+                if card[0] == typing[0]:
+                    counter  += 1
+            for card in comp_hand[:]:
+                if counter == 4 and card[0] == typing[0]:
                     comp_hand.remove(card)
-                    comp_hand.remove(checksum)
-                    compmatches.append((card, checksum))
-                    break
+                    adder.append(card)
+        if adder:
+            compmatches.append(adder)
+        adder = []
+
         try:
             askfor = int(input(f""" 
             Current Player Matches {len(playmatches)}
             {playmatches}
 
-            Current Computer Matches
+            Current Computer Matches {len(compmatches)}
             {compmatches}
 
             Your Hand Is: 
@@ -133,19 +168,30 @@ def fish(tickets):
         os.system('clear')
         print("Its The Computers Turn")
         random.shuffle(comp_hand)
-        take = comp_hand[0]
-        print(f"The Computer Asks For {take}")
-        old_comp = comp_hand[:]
-        for cm in play_hand:
-            if take == cm[0]:
-                print(f"The Computer Has Taken Your {cm}")
-        if old_comp == comp_hand:
-            if len(deck) > 0:
-                print("Go Fish")
-                comp_hand.append(deck[0])
-                deck.remove(deck[0])
-            else:
-                print("The Deck Is Empty, No New Cards May Be Drawn")
+        if len(comp_hand) > 0:
+            take = comp_hand[0]
+            print(f"The Computer Asks For {take}")
+            old_comp = comp_hand[:]
+            for cm in play_hand[:]:
+                if take[0] == cm[0]:
+                    print(f"The Computer Has Taken Your {cm}")
+                    play_hand.remove(cm)
+                    comp_hand.append(cm)
+                    input("""
+                    Press Enter To Continue""")
+            if old_comp == comp_hand:
+                if len(deck) > 0:
+                    print("Go Fish")
+                    comp_hand.append(deck[0])
+                    deck.remove(deck[0])
+                else:
+                    print("The Deck Is Empty, No New Cards May Be Drawn")
+                print()
+                input("Press Enter To Continue")
+        if len(comp_hand) <= 0:
+            print("The Computers Hand Is Empty, Automatic Go Fish")
+            comp_hand.append(deck[0])
+            deck.remove(deck[0])
             print()
             input("Press Enter To Continue")
 fish(0)
