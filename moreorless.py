@@ -4,6 +4,7 @@ from cards import *
 from gofish import cards
 
 def moreorless(tickets):
+    os.system('clear')
     pull = pullcard()
     good = False
     while good == False:
@@ -19,7 +20,25 @@ def moreorless(tickets):
             os.system('clear')
             good = False
         secondpull = pullcard()
-        
+        print(f"""Second Pull
+        {secondpull[0]}
+        {secondpull[1]}""")
+        if response == "higher":
+            if pull[3] < secondpull[3]:
+                print("You Win 8 Tickets")
+                return 8
+            else:
+                print("You Lose")
+                return 0
+
+        if response == "lower":
+            if pull[3] > secondpull[3]:
+                print("You Win 8 Tickets")
+                return 8
+            else:
+                print("You Lose")
+                return 
+    os.system('clear')
 moreorless(0)
 
 

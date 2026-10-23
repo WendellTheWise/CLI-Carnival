@@ -141,39 +141,41 @@ cardart = [
 def pullcard():
     cardlist = cards.copy()
     random.shuffle(cardlist)
-    art = 0
+    suit = 0
+    count = 0
     if cardlist[0][1] == "Spades":
-        art += 0
+        suit += 0
     elif cardlist[0][1] == "Hearts":
-        art += 13
+        suit += 13
     elif cardlist[0][1] == "Diamonds":
-        art += 26
+        suit += 26
     elif cardlist[0][1] == "Clubs":
-        art += 39
+        suit += 39
     if cardlist[0][0] == "Ace":
-        art += 0
+        count += 0
     if cardlist[0][0] == "Two":
-        art += 1
+        count += 1
     if cardlist[0][0] == "Three":
-        art += 2
+        count += 2
     if cardlist[0][0] == "Four":
-        art += 3
+        count += 3
     if cardlist[0][0] == "Five":
-        art += 4
+        count += 4
     if cardlist[0][0] == "Six":
-        art += 5
+        count += 5
     if cardlist[0][0] == "Seven":
-        art += 6
+        count += 6
     if cardlist[0][0] == "Eight":
-        art += 7
+        count += 7
     if cardlist[0][0] == "Nine":
-        art += 8
+        count += 8
     if cardlist[0][0] == "Ten":
-        art += 9
+        count += 9
     if cardlist[0][0] == "Jack":
-        art += 10
+        count += 10
     if cardlist[0][0] == "Queen":
-        art += 11
+        count += 11
     if cardlist[0][0] == "King":
-        art += 12
-    return[cardart[art], cardlist[0]]
+        count += 12
+    art = count + suit
+    return[cardart[art], cardlist[0], art, count, suit]
