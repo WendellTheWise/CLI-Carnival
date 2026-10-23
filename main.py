@@ -7,14 +7,15 @@ from rock_paper_scissors import *
 from Number_Guesser import *
 from chance import *
 from gofish import *
+from typer import *
 from hangman import *
 from mastermind import *
 from anagram import *
 from cardwar import *
 from simonsays import *
 import os
-Tickets = 1
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10"]
+Tickets = 5
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11"]
 exit = False
 while exit == False: 
     os.system('clear')
@@ -48,7 +49,8 @@ while exit == False:
     7: War : 8
     8: Simon : 10
     9: Go Fish : 4
-    10: Exit
+    10: Typing Test : 5
+    11: Exit
     Or Enter Reset To Reset The Leaderboard
     """)
     game = input("What Game Would You Like To Play? ").lower()
@@ -164,7 +166,19 @@ while exit == False:
             else:
                 Tickets -= 4
                 new_Tickets = fish(Tickets)
-                Tickets == new_Tickets
+                Tickets += new_Tickets
+                os.system('clear')
+
+        if game == "typing test" or game == "10":
+            os.system('clear')
+            if Tickets < 5:
+                print("Oh Hoh Hoh, My Goo Man, You Are Much Too Poor To Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
+            else:
+                Tickets -= 5
+                new_Tickets = typing(Tickets)
+                Tickets += new_Tickets
                 os.system('clear')
 
         if game == "reset":
@@ -172,7 +186,7 @@ while exit == False:
             with open(LEADERBOARD, "w") as f:
                 f.write("")
 
-        if game == "exit" or game == "10":
+        if game == "exit" or game == "11":
             exit = True
             os.system('clear')
             correct = True

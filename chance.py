@@ -18,7 +18,7 @@ def chance(tickets):
             os.system('clear')
     rand = random.randint((-wager),(2 * wager))
     problem = random.randint(0,2)
-    while timer < 75:
+    while timer < random.randint(70,80):
         if rand - 1 < (-wager):
             smallrand = 2 * wager
         else:

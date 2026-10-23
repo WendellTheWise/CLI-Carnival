@@ -127,9 +127,5 @@ def typing(Tickets):
         new = time.perf_counter()
     print(f"It Took You {(new - old) // 1} Seconds")
     print()
-    if old - new == 0:
-        tickets = 0
-    else:
-        tickets = 10 - (new - old) // 1
-    input(f"""You Have Earned {tickets} Tickets""")
-typing(0)
+    input(f"""You Have Earned {(12 - (new - old)) // 1} Tickets""")
+    return (12 - (new - old)) // 1
