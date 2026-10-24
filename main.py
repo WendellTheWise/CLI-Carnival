@@ -13,10 +13,11 @@ from mastermind import *
 from anagram import *
 from cardwar import *
 from simonsays import *
+from wallet import *
 from moreorless import *
 import os
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11", "higher or lower", "12"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11", "higher or lower", "12", "retrieve"]
 exit = False
 while exit == False: 
     os.system('clear')
@@ -53,7 +54,8 @@ while exit == False:
     10: Typing Test : 5
     11: Higher or Lower : 2
     12: Exit
-    Or Enter Reset To Reset The Leaderboard
+    Enter "Retrieve" To Set Tickets To A Previously Logged Amount
+    Or Enter "Reset" To Reset The Leaderboard
     """)
     game = input("What Game Would You Like To Play? ").lower()
     if game not in game_list:
@@ -194,7 +196,12 @@ while exit == False:
                 new_Tickets = moreorless(Tickets)
                 Tickets += new_Tickets
                 os.system('clear')
-                
+
+        if game == "retrieve":
+            os.system('clear')
+            Tickets = retrieve(input("Please Enter The Name Of A Player On The Leaderboard: "))
+            os.system('clear')
+
         if game == "reset":
             os.system('clear')
             with open(LEADERBOARD, "w") as f:
@@ -213,6 +220,7 @@ while exit == False:
                 
                     Press Enter To Continue""")
                     correct = True
+
             if question == "y" or question == "yes":
                 os.system('clear')
                 name = input("Please Enter A Name For You: ")
