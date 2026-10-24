@@ -13,9 +13,10 @@ from mastermind import *
 from anagram import *
 from cardwar import *
 from simonsays import *
+from moreorless import *
 import os
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11", "higher or lower", "12"]
 exit = False
 while exit == False: 
     os.system('clear')
@@ -50,7 +51,8 @@ while exit == False:
     8: Simon : 10
     9: Go Fish : 4
     10: Typing Test : 5
-    11: Exit
+    11: Higher or Lower : 2
+    12: Exit
     Or Enter Reset To Reset The Leaderboard
     """)
     game = input("What Game Would You Like To Play? ").lower()
@@ -172,7 +174,7 @@ while exit == False:
         if game == "typing test" or game == "10":
             os.system('clear')
             if Tickets < 5:
-                print("Oh Hoh Hoh, My Goo Man, You Are Much Too Poor To Play This Game. Go Get Yourself Some More Tickets")
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor To Play This Game. Go Get Yourself Some More Tickets")
                 print()
                 input("Press Enter To Continue")
             else:
@@ -180,13 +182,25 @@ while exit == False:
                 new_Tickets = typing(Tickets)
                 Tickets += new_Tickets
                 os.system('clear')
-
+        
+        if game == "higher or lower" or game == "11":
+            os.system('clear')
+            if Tickets < 2:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor To Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Pres Enter To Contine")
+            else:
+                Tickets -= 2
+                new_Tickets = moreorless(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
+                
         if game == "reset":
             os.system('clear')
             with open(LEADERBOARD, "w") as f:
                 f.write("")
 
-        if game == "exit" or game == "11":
+        if game == "exit" or game == "12":
             exit = True
             os.system('clear')
             correct = True

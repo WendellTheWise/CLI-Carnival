@@ -20,26 +20,33 @@ def moreorless(tickets):
             os.system('clear')
             good = False
         secondpull = pullcard()
-        print(f"""Second Pull
-        {secondpull[0]}
-        {secondpull[1]}""")
+        print(
+        secondpull[0],
+        secondpull[1])
         if response == "higher":
             if pull[3] < secondpull[3]:
-                print("You Win 8 Tickets")
-                return 8
+                print("You Win 4 Tickets")
+                print()
+                input("Press Enter To Continue")
+                return 4
             else:
                 print("You Lose")
+                print()
+                input("Press Enter To Continue")
                 return 0
 
         if response == "lower":
             if pull[3] > secondpull[3]:
-                print("You Win 8 Tickets")
-                return 8
+                print("You Win 4 Tickets")
+                print()
+                input("Press Enter To Continue")
+                return 4
             else:
                 print("You Lose")
-                return 
+                print()
+                input("Press Enter To Continue")
+                return 0
     os.system('clear')
-moreorless(0)
 
 
 
