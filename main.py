@@ -15,9 +15,10 @@ from cardwar import *
 from simonsays import *
 from wallet import *
 from moreorless import *
+from jellybeans import *
 import os
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11", "higher or lower", "12", "retrieve"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11", "higher or lower", "12", "retrieve", "jellybean counter", "13"]
 exit = False
 while exit == False: 
     os.system('clear')
@@ -53,7 +54,8 @@ while exit == False:
     9: Go Fish : 4
     10: Typing Test : 5
     11: Higher or Lower : 2
-    12: Exit
+    12: JellyBean Counter : 4
+    13: Exit
     Enter "Retrieve" To Set Tickets To A Previously Logged Amount
     Or Enter "Reset" To Reset The Leaderboard
     """)
@@ -190,10 +192,22 @@ while exit == False:
             if Tickets < 2:
                 print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor To Play This Game. Go Get Yourself Some More Tickets")
                 print()
-                input("Pres Enter To Contine")
+                input("Press Enter To Contine")
             else:
                 Tickets -= 2
                 new_Tickets = moreorless(Tickets)
+                Tickets += new_Tickets
+                os.system('clear')
+        
+        if game == "jellybean counter" or game == "12":
+            os.system('clear')
+            if Tickets < 4:
+                print("Oh Hoh Hoh, My Good Man, You Are Much Too Poor To Play This Game. Go Get Yourself Some More Tickets")
+                print()
+                input("Press Enter To Continue")
+            else:
+                Tickets -= 4
+                new_Tickets = jellies(Tickets)
                 Tickets += new_Tickets
                 os.system('clear')
 
@@ -207,7 +221,7 @@ while exit == False:
             with open(LEADERBOARD, "w") as f:
                 f.write("")
 
-        if game == "exit" or game == "12":
+        if game == "exit" or game == "13":
             exit = True
             os.system('clear')
             correct = True

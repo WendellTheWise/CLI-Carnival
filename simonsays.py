@@ -29,4 +29,6 @@ def simon(Tickets):
     print(f"The Correct Sequence Was{colors}")
     print()
     print(f"You Have Earned {len(colors.split()) - 1} Tickets")
-    return len(colors.split())
+    print()
+    input("Press Enter To Continue")
+    return len(colors.split()) - 1

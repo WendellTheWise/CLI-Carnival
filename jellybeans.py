@@ -70,4 +70,3 @@ def jellies(tickets): #26
         Press Enter To Continue""")
         return 0
 
-print(jellies(0))

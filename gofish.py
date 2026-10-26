@@ -122,7 +122,11 @@ def fish(tickets):
     The Computer Has Made {len(compmatches)} Matches""")
     if len(playmatches) > len(compmatches):
         print(f"You Win, You Have Earned {len(playmatches)} Tickets")
+        print()
+        input("Press Enter To Continue")
         return len(playmatches)
     if len(playmatches) < len(compmatches):
         print("You Lose. You Have Earned 0 Tickets")
+        print()
+        input("Press Enter To Continue")
         return 0
