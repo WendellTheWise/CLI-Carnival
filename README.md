@@ -12,7 +12,19 @@ A Mastermind Code Cracker,
 
 Anagrams To Solve,
 
-War Card Game
+War Card Game,
+
+Simon Says,
+
+Go Fish,
+
+Typing Test,
+
+Higher or Lower,
+
+JellyBean Estimator,
+
+Dice
 
 Run The Command below the title in your terminal "pip install CLI-Carnival==0.1.4" and it will download. Navigate to it in terminal (you may have to unzip or download the file manually) Then run "carnival" in the root of your computer (assuming you have python installed, check with python --version)
 
