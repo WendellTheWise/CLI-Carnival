@@ -15,10 +15,11 @@ from cardwar import *
 from simonsays import *
 from wallet import *
 from moreorless import *
+from dice import *
 from jellybeans import *
 import os
 Tickets = 5
-game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11", "higher or lower", "12", "retrieve", "jellybean counter", "13"]
+game_list = ["rock paper scissors", "number guess", "exit", "1", "2", "3", "chance", "4", "hangman", "5", "mastermind", "6", "anagrams", "7", "war", "8", "reset", "simon", "9", "go fish", "10", "typing test", "11", "higher or lower", "12", "retrieve", "jellybean counter", "13", "dice", "14"]
 exit = False
 while exit == False: 
     os.system('clear')
@@ -55,7 +56,8 @@ while exit == False:
     10: Typing Test : 5
     11: Higher or Lower : 2
     12: JellyBean Counter : 4
-    13: Exit
+    13: Dice : Wagerable
+    14: Exit
     Enter "Retrieve" To Set Tickets To A Previously Logged Amount
     Or Enter "Reset" To Reset The Leaderboard
     """)
@@ -211,6 +213,13 @@ while exit == False:
                 Tickets += new_Tickets
                 os.system('clear')
 
+        if game == "dice" or game == "13":
+            os.system('clear')
+            Tickets = roll(Tickets)
+            print()
+            input("Press Enter To Continue")
+            os.system('clear')
+
         if game == "retrieve":
             os.system('clear')
             Tickets = retrieve(input("Please Enter The Name Of A Player On The Leaderboard: "))
@@ -221,7 +230,7 @@ while exit == False:
             with open(LEADERBOARD, "w") as f:
                 f.write("")
 
-        if game == "exit" or game == "13":
+        if game == "exit" or game == "14":
             exit = True
             os.system('clear')
             correct = True
